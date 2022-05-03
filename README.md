@@ -1,6 +1,10 @@
 # ArtOfRallyTK
 Toolkit for [Art Of Rally](https://artofrally.com/)
 
+### Information for reuse
+**All Python (.py) scripts are meant to be run from the root directory.**  
+**All jupyter notebooks (.ipynb) are supposed to be run from the current directory.**
+
 ### Tools
 
 * [Dashboard](dashboard)  
@@ -23,3 +27,5 @@ Scrap leaderboards using funselektorfun.com api
 |![](leaderboards/logs_view/GroupB_top50_cars.png)|
 |![](leaderboards/logs_view/GroupS_top50_cars.png)|
 |![](leaderboards/logs_view/GroupA_top50_cars.png)|
+
+### Acknowledgement
