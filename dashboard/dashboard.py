@@ -41,3 +41,19 @@ def get_addresses(filename, pm):
             address = get_runtime_address(module[1:-1], int(address, 16), offsets, pm)
             addresses[description] = (address, variable_type)
     return addresses
+
+
+def get_addresses_selection(filename, pm, selection):
+    addresses = {}
+    for entry in ET.parse(filename).getroot().find('CheatEntries').findall('CheatEntry'):
+        for s in selection:
+            if s in entry.find('Description').text:
+                description = entry.find('Description').text[1:-1]
+                module, address = entry.find('Address').text.split('+')
+                variable_type = entry.find('VariableType').text
+                offsets = []
+                for offset in entry.find('Offsets').findall('Offset'):
+                    offsets.append(int(offset.text, 16))
+                address = get_runtime_address(module[1:-1], int(address, 16), offsets, pm)
+                addresses[description] = (address, variable_type)
+    return addresses
