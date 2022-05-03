@@ -1,4 +1,6 @@
+import sys
 import time
+from tkinter import *
 import pymem
 import pymem.process
 from xml.etree import ElementTree as ET
@@ -42,18 +44,33 @@ def get_addresses(filename, pm):
 
 def main():
     print('ArtOfRallyTk')
-    pename = 'artofrally.exe'
-    pm = pymem.Pymem(pename)
-    addresses = get_addresses('artofrally.CT', pm)
-    for k in addresses.keys():
-        print(k, '\n', hex(addresses[k][0]))
 
-    if LOG:
-        logfile = open('log.csv', 'w')
-        logfile.write('time,')
+    codename = str(int(time.time()))
+    if len(sys.argv) > 1:
+        codename = sys.argv[1]
+    log_filename = f'dashboard/logs/log_{codename}.csv'
+    print('[INFO] ', log_filename)
+
+    try:
+        pename = 'artofrally.exe'
+        pm = pymem.Pymem(pename)
+        addresses = get_addresses('cheat-table/artofrally.CT', pm)
         for k in addresses.keys():
-            logfile.write(k + ',')
-        logfile.write('\n')
+            print('[INFO] ', k.ljust(20), hex(addresses[k][0]))
+    except Exception as e:
+        print('[ERROR]', e)
+        exit(1)
+
+    try:
+        if LOG:
+            logfile = open(log_filename, 'w')
+            logfile.write('time,')
+            for k in addresses.keys():
+                logfile.write(k + ',')
+            logfile.write('\n')
+    except Exception as e:
+        print('[ERROR]', e)
+        exit(1)
 
     while True:
         try:
@@ -67,7 +84,7 @@ def main():
         except KeyboardInterrupt:
             break
         except Exception as e:
-            print(e)
+            print('[ERROR]', e)
             continue
 
     if LOG:
