@@ -1,6 +1,10 @@
 # ArtOfRallyTK Dashboard
 
-| visualizations |
+| realtime dashboard |
+|-|
+|![dashboard_viewer](dashboard_viewer.png)|
+
+| logs visualizations |
 |-|
 |![](logs_view/das_220_01.png)|
 |![](logs_view/das_220_02.png)|
