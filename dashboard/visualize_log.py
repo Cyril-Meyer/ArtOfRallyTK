@@ -2,11 +2,18 @@ import glob
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from os import walk
 
-for logfile in glob.glob('*.csv'):
+logpath = 'dashboard/logs/'
+outpath = 'dashboard/logs_view/'
+logfiles = []
+for (dirpath, dirnames, filenames) in walk(logpath):
+    logfiles.extend(filenames)
+
+for logfile in logfiles:
     name = logfile[4:-4]
 
-    df = pd.read_csv(logfile).dropna(how='all', axis='columns')
+    df = pd.read_csv(logpath + logfile).dropna(how='all', axis='columns')
     df['Acceleration'] = (df['Speed pointer 1'].diff()*10).rolling(10).sum()
     df['RPM'] = df['RPM pointer 1'].rolling(5).sum()/5
     # truncate before the start
@@ -30,5 +37,5 @@ for logfile in glob.glob('*.csv'):
     ax = fig.get_axes()
     ax[1].set_ylim(0, 10000)
 
-    plt.savefig(name + '.png')
+    plt.savefig(outpath + name + '.png')
 # plt.show()
