@@ -7,6 +7,7 @@ def move_window_0(window_name):
     rect = win32gui.GetWindowRect(hwnd)
     xsize, ysize = rect[2] - rect[0], rect[3] - rect[1]
     win32gui.MoveWindow(hwnd, 0, 0, xsize, ysize, True)
+    return xsize, ysize
 
 
 def get_img(sct, x_min, x_size, y_min, y_size):

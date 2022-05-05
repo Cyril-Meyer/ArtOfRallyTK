@@ -2,7 +2,7 @@ import time
 import numpy as np
 import cv2
 
-codename = 'test'
+codename = 'FIN_LAS_R_MOR_01'
 
 data_images = np.load(f'./self-driving/data/{codename}_images.npy')
 data_keys = np.load(f'./self-driving/data/{codename}_keys.npy')
@@ -39,4 +39,4 @@ for i in range(len(data_images)):
         break
 
     time.sleep(0.01)
-cv2.destroyAllWindows()  # close all windows
+cv2.destroyAllWindows()
