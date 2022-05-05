@@ -4,9 +4,9 @@ import cv2
 
 codename = 'FIN_LAS_R_MOR_01'
 
-data_images = np.load(f'./self-driving/data/{codename}_images.npy')
-data_keys = np.load(f'./self-driving/data/{codename}_keys.npy')
-data_memory = np.load(f'./self-driving/data/{codename}_memory.npy')
+data_images = np.load(f'./self-driving/data_raw/{codename}_images.npy')
+data_keys = np.load(f'./self-driving/data_raw/{codename}_keys.npy')
+data_memory = np.load(f'./self-driving/data_raw/{codename}_memory.npy')
 
 print(data_images.shape)
 print(data_keys.shape)

@@ -61,8 +61,8 @@ data_images = np.array(data_images)
 data_keys = np.array(data_keys)
 data_memory = np.array(data_memory)
 
-np.save(f'./self-driving/data/{CODENAME}_images', data_images)
-np.save(f'./self-driving/data/{CODENAME}_keys', data_keys)
-np.save(f'./self-driving/data/{CODENAME}_memory', data_memory)
+np.save(f'./self-driving/data_raw/{CODENAME}_images', data_images)
+np.save(f'./self-driving/data_raw/{CODENAME}_keys', data_keys)
+np.save(f'./self-driving/data_raw/{CODENAME}_memory', data_memory)
 
 print('data saved')
