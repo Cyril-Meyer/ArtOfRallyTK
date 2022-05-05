@@ -8,7 +8,7 @@ import keys
 
 x_size, y_size = screen.move_window_0('art of rally')
 
-model = tf.keras.models.load_model('model_alpha_best')
+model = tf.keras.models.load_model('./self-driving/model_alpha_best')
 
 with mss.mss() as sct:
     i = 0
