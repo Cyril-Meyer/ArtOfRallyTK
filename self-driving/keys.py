@@ -1,11 +1,9 @@
-import win32api
-from pynput.keyboard import Key, Controller
-
+import win32api, win32con
+import pyautogui
+pyautogui.FAILSAFE = False
 
 # AZERTY keyboard
 keys = ['Z', 'Q', 'S', 'D']
-# output
-keyboard = Controller()
 
 
 def get_keys():
@@ -17,10 +15,22 @@ def get_keys():
 
 
 def set_keys(input):
+    print(input)
     for k in range(len(input)):
         key = keys[k]
-        if input[k] == 1:
-            keyboard.press(key)
-        else:
-            keyboard.release(key)
+        if input[k] == 1 and set_keys_static_input_1[k] == 0:
+            print('keyDown', key)
+            pyautogui.keyDown(key)
+            set_keys_static_input_1[k] = 1
+        elif input[k] == 0 and set_keys_static_input_1[k] == 1:
+            print('keyUp', key)
+            pyautogui.keyUp(key)
+            set_keys_static_input_1[k] = 0
     return
+set_keys_static_input_1 = [0, 0, 0, 0]
+
+
+def check_quit_key():
+    if win32api.GetAsyncKeyState(win32con.VK_ESCAPE):
+        return True
+    return False
