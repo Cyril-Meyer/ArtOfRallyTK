@@ -529,3 +529,6 @@ dmypy.json
 
 # PyCharm
 .idea
+
+# Misc
+__*__
