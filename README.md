@@ -8,7 +8,8 @@ Toolkit for [Art Of Rally](https://artofrally.com/)
 ### Tools
 
 * [Dashboard](dashboard)  
-Read and log speed, RPM and engaged gear of running game
+Read and log speed, RPM and engaged gear of running game  
+This project require an up to date [cheat table](cheat-table)
 * [Leaderboards](leaderboards)  
 Scrap leaderboards using funselektorfun.com api
 
