@@ -7,6 +7,12 @@ Toolkit for [Art Of Rally](https://artofrally.com/)
 
 ### Tools
 
+* [OCR](ocr)  
+Read speed, RPM and gear using image processing on the game window screen.
+* [AMT](automated-manual-transmission)  
+Automated manual transmission, conventional manual transmission with
+automatic actuation.  
+This project require a working [OCR](ocr)
 * [Dashboard](dashboard)  
 Read and log speed, RPM and engaged gear of running game  
 This project require an up to date [cheat table](cheat-table)
