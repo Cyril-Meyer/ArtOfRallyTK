@@ -4,8 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from os import walk
 
-logpath = 'dashboard/logs/'
-outpath = 'dashboard/logs_view/'
+logpath = 'dashboard-logger/logs/'
+outpath = 'dashboard-logger/logs_view/'
 logfiles = []
 for (dirpath, dirnames, filenames) in walk(logpath):
     logfiles.extend(filenames)
