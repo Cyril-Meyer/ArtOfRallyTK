@@ -7,11 +7,11 @@ import dashboard
 LOG = True
 
 
-def main(cheat_table_filename):
+def main(cheat_table_filename, codename=None):
     print('ArtOfRallyTk')
 
-    codename = str(int(time.time()))
-    print(codename)
+    if codename is None:
+        codename = str(int(time.time()))
     log_filename = f'dashboard/logs/log_{codename}.csv'
     print('[INFO] ', log_filename)
 
@@ -58,6 +58,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('cheattable', help='cheat table filename',
                         type=argparse.FileType('r', encoding='UTF-8'))
+    parser.add_argument('--codename', help='output filename codename',
+                        type=str)
     args = parser.parse_args()
-    main(args.cheattable)
+
+    main(args.cheattable, args.codename)
     exit(0)
