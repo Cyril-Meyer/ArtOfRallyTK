@@ -21,10 +21,21 @@ Scrap leaderboards using funselektorfun.com api
 
 ### Result examples
 
+#### [OCR](ocr)
+
+| realtime ocr |
+|-|
+|![](ocr/ocr.png)|
+
+
+#### [Dashboard](dashboard)
+
 | speed graph : 60s vs Group A |
 |-|
 |![](dashboard/logs_view/das_220_01.png)|
 |![](dashboard/logs_view/the_fujin_01.png)|
+
+#### [Leaderboards](leaderboards)
 
 | most used car in top 50 by group |
 |-|
