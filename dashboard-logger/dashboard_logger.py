@@ -2,7 +2,7 @@ import argparse
 import sys
 import time
 from tkinter import *
-import dashboard
+import dashboard.dashboard
 
 LOG = True
 
@@ -12,12 +12,12 @@ def main(cheat_table_filename, codename=None):
 
     if codename is None:
         codename = str(int(time.time()))
-    log_filename = f'dashboard/logs/log_{codename}.csv'
+    log_filename = f'dashboard-logger/logs/log_{codename}.csv'
     print('[INFO] ', log_filename)
 
     try:
-        pm = dashboard.open_aor_process()
-        addresses = dashboard.get_addresses(cheat_table_filename, pm)
+        pm = dashboard.dashboard.open_aor_process()
+        addresses = dashboard.dashboard.get_addresses(cheat_table_filename, pm)
         for k in addresses.keys():
             print('[INFO] ', k.ljust(20), hex(addresses[k][0]))
     except Exception as e:
@@ -40,7 +40,7 @@ def main(cheat_table_filename, codename=None):
             if LOG:
                 logfile.write(str(time.time_ns() // 1000000) + ',')
                 for k in addresses.keys():
-                    logfile.write(str(dashboard.get_value(addresses[k][0], addresses[k][1], pm)) + ',')
+                    logfile.write(str(dashboard.dashboard.get_value(addresses[k][0], addresses[k][1], pm)) + ',')
                 logfile.write('\n')
 
             time.sleep(0.01)
