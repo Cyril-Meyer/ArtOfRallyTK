@@ -2,6 +2,9 @@
 
 Art of Rally Automated Manual Transmission
 
+[![](https://img.youtube.com/vi/DsTWGiM55rg/0.jpg)](https://www.youtube.com/watch?v=DsTWGiM55rg)  
+https://youtu.be/DsTWGiM55rg
+
 ### Art of Rally setup
 
 <table>
