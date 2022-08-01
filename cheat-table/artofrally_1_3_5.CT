@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="34">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"Speed pointer 1"</Description>
+      <LastState Value="0" RealAddress="22347ECFA04"/>
+      <VariableType>Float</VariableType>
+      <Address>"UnityPlayer.dll"+017DE3B0</Address>
+      <Offsets>
+        <Offset>104</Offset>
+        <Offset>20</Offset>
+        <Offset>28</Offset>
+        <Offset>38</Offset>
+        <Offset>30</Offset>
+        <Offset>30</Offset>
+        <Offset>0</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13</ID>
+      <Description>"RPM pointer 1"</Description>
+      <VariableType>Float</VariableType>
+      <Address>"UnityPlayer.dll"+01839BF8</Address>
+      <Offsets>
+        <Offset>174</Offset>
+        <Offset>5A0</Offset>
+        <Offset>28</Offset>
+        <Offset>10</Offset>
+        <Offset>0</Offset>
+        <Offset>28</Offset>
+        <Offset>90</Offset>
+        <Offset>8</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
