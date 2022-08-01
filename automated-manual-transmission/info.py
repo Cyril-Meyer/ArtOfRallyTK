@@ -43,3 +43,19 @@ def get_gear_img(img):
 
 def get_gear_digit(img):
     return img[:, 2:14]
+
+
+def get_rpm_img(img):
+    return (img[:, 120:120+160, 0:3] / 255)*1.0
+
+
+def get_rpm_digits(img):
+    d2k = np.sum(img[13, 18]) < 2.2
+    d3k = np.sum(img[13, 40]) < 2.2
+    d4k = np.sum(img[13, 65]) < 2.2
+    d5k = np.sum(img[13, 86]) < 2.2
+    d6k = np.sum(img[13, 110]) < 2.2
+    d7k = np.sum(img[13, 132]) < 2.2
+    d8k = np.sum(img[13, 156]) < 2.2
+    red = img[13, 18, 2] > 0.9
+    return np.array([True, d2k, d3k, d4k, d5k, d6k, d7k, d8k, red]).astype(np.int32)
