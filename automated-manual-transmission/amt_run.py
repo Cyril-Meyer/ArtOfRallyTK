@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 import cv2
 import amt
-import info
+import ocr.info
 
 
 parser = argparse.ArgumentParser()
@@ -15,9 +15,9 @@ args = parser.parse_args()
 gearbox = json.load(args.settings)
 print(gearbox, type(gearbox))
 
-info.set_window_position()
+ocr.info.set_window_position()
 
-model = tf.keras.models.load_model('automated-manual-transmission/model_ocr_speed')
+model = tf.keras.models.load_model('ocr/model_ocr_speed')
 
 cv2.namedWindow('capture')
 cv2.moveWindow('capture', 1400, 0)
@@ -34,13 +34,13 @@ while True:
         break
 
     # read screen
-    img = info.get_screen()
+    img = ocr.info.get_screen()
     # select speed and gear area
-    speed_img = info.get_speed_img(img)
-    gear_img = info.get_gear_img(img)
+    speed_img = ocr.info.get_speed_img(img)
+    gear_img = ocr.info.get_gear_img(img)
     # OCR speed and gear
-    speed_digits = info.get_speed_digits(speed_img)
-    gear_digit = info.get_gear_digit(gear_img)
+    speed_digits = ocr.info.get_speed_digits(speed_img)
+    gear_digit = ocr.info.get_gear_digit(gear_img)
     X = np.concatenate([speed_digits, [gear_digit]], axis=0)
     Y = np.argmax(model(X), axis=-1)
     Y_speed = Y[0:3]
@@ -50,9 +50,9 @@ while True:
         flag_no_error = False
 
     # select rpm area
-    rpm_img = info.get_rpm_img(img)
+    rpm_img = ocr.info.get_rpm_img(img)
     # recognize rpm
-    Y_rpm = info.get_rpm_digits(rpm_img)
+    Y_rpm = ocr.info.get_rpm_digits(rpm_img)
     # check for error in values
     if np.any(np.diff(Y_rpm) > 0):
         flag_no_error = False
