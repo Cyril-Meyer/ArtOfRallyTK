@@ -45,6 +45,16 @@ def get_gear_digit(img):
     return img[:, 2:14]
 
 
+gear_dict = {0: '0',
+             1: '1',
+             2: '2',
+             3: '3',
+             4: '4',
+             5: '5',
+             11: 'N',
+             12: 'R'}
+
+
 def get_rpm_img(img):
     return (img[:, 120:120+160, 0:3] / 255)*1.0
 

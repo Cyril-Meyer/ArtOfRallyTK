@@ -4,6 +4,7 @@ import time
 import tensorflow as tf
 import numpy as np
 import cv2
+import amt
 import info
 
 
@@ -50,8 +51,9 @@ while True:
 
     # select rpm area
     rpm_img = info.get_rpm_img(img)
-    # recognize
+    # recognize rpm
     Y_rpm = info.get_rpm_digits(rpm_img)
+    # check for error in values
     if np.any(np.diff(Y_rpm) > 0):
         flag_no_error = False
 
@@ -63,6 +65,8 @@ while True:
                 (Y_speed[1] % 10) * 10 +\
                 (Y_speed[2] % 10)
         rpm = max(1000, (np.max(np.argwhere(Y_rpm[0:-1])))*1000)
+        # apply auto gearbox
+        amt.apply(gearbox, gear, speed, rpm)
 
     # print info
     capture = np.zeros((img.shape[0]+64, img.shape[1], 3), dtype=img.dtype)
