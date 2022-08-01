@@ -21,6 +21,12 @@ Scrap leaderboards using funselektorfun.com api
 
 ### Result examples
 
+#### [AMT](automated-manual-transmission)
+
+| realtime amt |
+|-|
+|[![](https://img.youtube.com/vi/DsTWGiM55rg/0.jpg)](https://www.youtube.com/watch?v=DsTWGiM55rg)|
+
 #### [OCR](ocr)
 
 | realtime ocr |
