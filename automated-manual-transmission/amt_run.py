@@ -21,6 +21,7 @@ model = tf.keras.models.load_model('ocr/model_ocr_speed')
 
 cv2.namedWindow('capture')
 cv2.moveWindow('capture', 1400, 0)
+gear_change_show = 0
 fps = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 speed = 0
 gear = 0
@@ -66,7 +67,10 @@ while True:
                 (Y_speed[2] % 10)
         rpm = max(1000, (np.max(np.argwhere(Y_rpm[0:-1])))*1000)
         # apply auto gearbox
-        amt.apply(gearbox, gear, speed, rpm)
+        gear_changes = amt.apply(gearbox, gear, speed, rpm)
+        # for
+        if gear_changes != 0:
+            gear_change_show = gear_changes * 10
 
     # print info
     capture = np.zeros((img.shape[0]+64, img.shape[1], 3), dtype=img.dtype)
@@ -75,6 +79,15 @@ while True:
     cv2.putText(capture, f'{gear}', (100, 64), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, 2)
     cv2.putText(capture, f'{rpm:04}', (150, 64), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, 2)
     cv2.putText(capture, f'FPS : {round(np.average(fps))}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255, 255, 255), 2, 2)
+    cv2.putText(capture, f'+', (150, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50, 50, 50), 2, 2)
+    cv2.putText(capture, f'-', (170, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50, 50, 50), 2, 2)
+    if gear_change_show != 0:
+        if gear_change_show > 0:
+            cv2.putText(capture, f'+', (150, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2, 2)
+            gear_change_show -= 1
+        if gear_change_show < 0:
+            cv2.putText(capture, f'-', (170, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2, 2)
+            gear_change_show += 1
     cv2.imshow('capture', capture)
 
     t1 = time.time()
