@@ -1,3 +1,4 @@
+import argparse
 import sys
 import os
 
@@ -9,13 +10,14 @@ import dashboard
 
 
 class Dashboard(QWidget):
-    def __init__(self):
+    def __init__(self, cheat_table_filename, debug=False):
         super(Dashboard, self).__init__()
         self.ui = self.load_ui()
         self.setWindowTitle('ArtOfRallyTK - Dashboard')
+        self.debug = debug
 
         self.pm = dashboard.open_aor_process()
-        self.addresses = dashboard.get_addresses('./cheat-table/artofrally.CT', self.pm)
+        self.addresses = dashboard.get_addresses(cheat_table_filename, self.pm)
 
         '''
         self.ui.label_1.setText(list(addresses.keys())[0])
@@ -38,18 +40,34 @@ class Dashboard(QWidget):
         self.QTimerUpdateUI.start(10)
 
     def updateUI(self):
-        k = 'Speed pointer 1'
-        self.ui.progressBar_1.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
-        self.ui.lcdNumber_1.display(str(round(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm), 1)))
-        k = 'RPM pointer 1'
-        self.ui.progressBar_2.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
-        self.ui.lcdNumber_2.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)))
-        k = 'Gear pointer 1'
-        self.ui.progressBar_3.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
-        self.ui.lcdNumber_3.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)-1))
-        k = 'Steering pointer 1'
-        self.ui.progressBar_4.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)*1000)
-        self.ui.lcdNumber_4.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)*1000))
+        try:
+            k = 'Speed pointer 1'
+            self.ui.progressBar_1.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
+            self.ui.lcdNumber_1.display(str(round(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm), 1)))
+        except Exception as e:
+            if self.debug:
+                print(e)
+        try:
+            k = 'RPM pointer 1'
+            self.ui.progressBar_2.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
+            self.ui.lcdNumber_2.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)))
+        except Exception as e:
+            if self.debug:
+                print(e)
+        try:
+            k = 'Gear pointer 1'
+            self.ui.progressBar_3.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm))
+            self.ui.lcdNumber_3.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)-1))
+        except Exception as e:
+            if self.debug:
+                print(e)
+        try:
+            k = 'Steering pointer 1'
+            self.ui.progressBar_4.setValue(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)*1000)
+            self.ui.lcdNumber_4.display(int(dashboard.get_value(self.addresses[k][0], self.addresses[k][1], self.pm)*1000))
+        except Exception as e:
+            if self.debug:
+                print(e)
         return
 
     def load_ui(self):
@@ -61,8 +79,13 @@ class Dashboard(QWidget):
         ui_file.close()
         return ui
 
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('cheattable', help='cheat table filename',
+                        type=argparse.FileType('r', encoding='UTF-8'))
+    args = parser.parse_args()
     app = QApplication([])
-    widget = Dashboard()
+    widget = Dashboard(args.cheattable)
     widget.show()
     sys.exit(app.exec_())

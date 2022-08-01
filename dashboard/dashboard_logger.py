@@ -1,3 +1,4 @@
+import argparse
 import sys
 import time
 from tkinter import *
@@ -6,18 +7,17 @@ import dashboard
 LOG = True
 
 
-def main():
+def main(cheat_table_filename):
     print('ArtOfRallyTk')
 
     codename = str(int(time.time()))
-    if len(sys.argv) > 1:
-        codename = sys.argv[1]
+    print(codename)
     log_filename = f'dashboard/logs/log_{codename}.csv'
     print('[INFO] ', log_filename)
 
     try:
         pm = dashboard.open_aor_process()
-        addresses = dashboard.get_addresses('cheat-table/artofrally.CT', pm)
+        addresses = dashboard.get_addresses(cheat_table_filename, pm)
         for k in addresses.keys():
             print('[INFO] ', k.ljust(20), hex(addresses[k][0]))
     except Exception as e:
@@ -55,5 +55,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('cheattable', help='cheat table filename',
+                        type=argparse.FileType('r', encoding='UTF-8'))
+    args = parser.parse_args()
+    main(args.cheattable)
     exit(0)
