@@ -14,8 +14,11 @@ Automated manual transmission, conventional manual transmission with
 automatic actuation.  
 This project requires a working [OCR](ocr)
 * [Dashboard](dashboard)  
-Show and log speed, RPM and gear of running game reading process memory.  
-This project require an up to date [cheat table](cheat-table)
+Show speed, RPM, gear and steering of running game reading process memory.  
+This project requires an up to date [cheat table](cheat-table)
+* [Dashboard Logger](dashboard-logger)  
+Log speed, RPM, gear and  steering of running game reading process memory.  
+This project requires an up to date [cheat table](cheat-table)
 * [Leaderboards](leaderboards)  
 Scrap leaderboards using funselektorfun.com api
 
