@@ -16,3 +16,10 @@ https://youtu.be/DsTWGiM55rg
   <tr><td>resolution</td><td>1280 x 720</td></tr>
   <tr><td>quality</td><td>medium</td></tr>
 </table>
+
+| logs visualizations |
+|-|
+| Automatic |
+|![](dashboard_logs_view/kenya_lakenakuru_s_eibenhamemr_automatic.png)|
+| Manual |
+|![](dashboard_logs_view/kenya_lakenakuru_s_eibenhamemr_manual.png)|
