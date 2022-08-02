@@ -1,18 +1,20 @@
 # ArtOfRallyTK Cheat Table
 
-Memory address for interesting values. Fixed address found using multiple
+Memory addresses for interesting values. Fixed address found using multiple
 pointer scan.
 
-**Warning :** 
-* [1.3.5](artofrally_1_3_5.CT) cheat table only has Speed and RPM pointer
-* [1.3.4](artofrally_1_3_4.CT) cheat table is outdated
+| Version                    | Speed | RPM | Gear | Steering |
+|----------------------------|:-----:|:---:|:----:|:--------:|
+|[1.3.5](artofrally_1_3_5.CT)| ✅ | ✅ | ✅ |    |
+|[1.3.4](artofrally_1_3_4.CT) (outdated) | ✅ | ✅ | ✅ | ✅ |
 
-### How to search for fixed adress ?
+
+### How to search for fixed addresses ?
 
 **Data types and possible values**
 
 | Description | Type | Values |
-|-|-|-|
+|-------------|------|--------|
 | Speed    | Float   | speed is on ui (use truncated) |
 | RPM      | Float   | min is arround 1000, max is less than 10000 |
 | Gear     | 4 Bytes | neutral = 1, 2nd = 3, 3rd = 4, etc |
@@ -34,5 +36,7 @@ Do this 4 or 5 times.
 4. Pointer scan for this address
 5. Compare results with other saved pointermaps
 
-If you are lucky enough, you will get a fixed address.  
-If you don't, you may increase maximum offset level to 8.
+If you are lucky enough, you will get a list of fixed address.  
+If you do not, you may increase maximum offset level to 8 or 9.
+Using a higher maximum offset level causes an increase in search time, this can take several days, you can stop the
+search once you have found a satisfactory number of results.
