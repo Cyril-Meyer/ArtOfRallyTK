@@ -41,8 +41,8 @@ Scrap leaderboards using funselektorfun.com api
 
 | speed graph : 60s vs Group A |
 |-|
-|![](dashboard/logs_view/das_220_01.png)|
-|![](dashboard/logs_view/the_fujin_01.png)|
+|![](dashboard-logger/logs_view/das_220_01.png)|
+|![](dashboard-logger/logs_view/the_fujin_01.png)|
 
 #### [Leaderboards](leaderboards)
 
