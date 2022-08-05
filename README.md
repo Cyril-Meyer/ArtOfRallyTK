@@ -53,9 +53,6 @@ ArtOfRally Flat Finland Freeroam Map. A flat map for debug and experiences.
 | most used car in top 50 by group |
 |---|
 |![](leaderboards/logs_view/60s_top50_cars.png)|
-|![](leaderboards/logs_view/70s_top50_cars.png)|
-|![](leaderboards/logs_view/80s_top50_cars.png)|
-|![](leaderboards/logs_view/GroupB_top50_cars.png)|
 |![](leaderboards/logs_view/GroupS_top50_cars.png)|
 |![](leaderboards/logs_view/GroupA_top50_cars.png)|
 
