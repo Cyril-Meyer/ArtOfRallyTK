@@ -58,3 +58,16 @@ ArtOfRally Flat Finland Freeroam Map. A flat map for debug and experiences.
 |![](leaderboards/logs_view/GroupB_top50_cars.png)|
 |![](leaderboards/logs_view/GroupS_top50_cars.png)|
 |![](leaderboards/logs_view/GroupA_top50_cars.png)|
+
+### Acknowledgement
+
+I would never have embarked on the mod creation project for this game if
+it was not as interesting.
+Thanks to [funselektor](https://funselektor.com/) for their great game.
+
+Thanks a lot to [Thea Schöbl](https://github.com/Theaninova) for her help and
+work around the Art of Rally modding community.
+
+Thanks to [Dacarpe03](https://github.com/Dacarpe03) for his
+[ArtOfRallyAI](https://github.com/Dacarpe03/ArtOfRallyAI) project, who made
+me want to get into the modding 'game'. (to beat him by doing better of course)
