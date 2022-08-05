@@ -59,7 +59,18 @@ example : `Finland_Stage_1_Forward_Dry_60s`
 
 ### Result examples
 
-| visualizations |
+**most competitive group**
+
+| group    | mean of standard deviations | mean of mean distance to the first |
+|----------|-----------------------------|------------------------------------|
+|      60s |                     3630.85 |                            10440.7 |
+|      70s |                     3649.33 |                             9982.8 |
+|      80s |                     3313.13 |                             9140.1 |
+|   GroupB |                     3270.98 |                             9237.3 |
+|   GroupS |                      3242.0 |                             9552.6 |
+|   GroupA |                     2768.51 |                             8384.6 |
+
+| most used car by the top 50 per group |
 |---|
 |![](logs_view/60s_top50_cars.png)|
 |![](logs_view/70s_top50_cars.png)|
