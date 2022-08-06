@@ -13,6 +13,9 @@ Read speed, RPM and gear using image processing on the game window screen.
 Automated manual transmission, conventional manual transmission with
 automatic actuation.  
 This project requires a working [OCR](ocr)
+* [aorc-logger](aorc-logger)  
+Log speed, RPM and gear of running game using
+[aorc-client](https://github.com/Theaninova/aorc-client) mod.
 * [Dashboard](dashboard)  
 Show speed, RPM, gear and steering of running game reading process memory.  
 This project requires an up to date [cheat table](cheat-table)
@@ -21,10 +24,18 @@ Log speed, RPM, gear and  steering of running game reading process memory.
 This project requires an up to date [cheat table](cheat-table)
 * [Leaderboards](leaderboards)  
 Scrap leaderboards using funselektorfun.com api
-  
+
 ### Sub-Project
+
 * [ArtOfRallyFFFMap](https://github.com/Cyril-Meyer/ArtOfRallyFFFMap)  
 ArtOfRally Flat Finland Freeroam Map. A flat map for debug and experiences.
+
+### Car Benchmarks
+The [car-benchmarks](car-benchmarks) folder contains benchmark results for some
+cars.
+We use [ArtOfRallyFFFMap](https://github.com/Cyril-Meyer/ArtOfRallyFFFMap) to
+compare speed and acceleration in a controlled environment.
+The data where acquired using [aorc-logger](aorc-logger).
 
 ### Result examples
 
