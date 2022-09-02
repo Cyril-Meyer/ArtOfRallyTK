@@ -1,0 +1,18 @@
+{
+  "0": {
+    "limit": "150",
+    "action": "accelerate"
+  },
+  "1": {
+    "limit": "100",
+    "action": "idle"
+  },
+  "2": {
+    "limit": "150",
+    "action": "accelerate"
+  },
+  "3": {
+    "limit": "-1",
+    "action": "break"
+  }
+}

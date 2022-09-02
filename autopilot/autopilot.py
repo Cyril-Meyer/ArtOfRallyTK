@@ -7,18 +7,22 @@ def apply(speed, stages, stage):
     if action == 'accelerate':
         if speed > limit:
             pyautogui.keyUp('z')
-            pyautogui.keyDown('s')
+            pyautogui.keyUp('s')
             return stage+1
         pyautogui.keyUp('s')
         pyautogui.keyDown('z')
-
     elif action == 'break':
         if speed < limit:
+            pyautogui.keyUp('z')
             pyautogui.keyUp('s')
-            pyautogui.keyDown('z')
             return stage+1
         pyautogui.keyUp('z')
         pyautogui.keyDown('s')
+    elif action == 'idle':
+        if speed < limit:
+            return stage+1
+        pyautogui.keyUp('z')
+        pyautogui.keyUp('s')
 
     return stage
 
