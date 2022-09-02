@@ -2,6 +2,32 @@
 
 Art of Rally Automated Manual Transmission
 
+Create your transmission profile in json (examples in [gearbox_settings](gearbox_settings)).
+Each gear has a min and max value.
+````
+{
+  "1": {
+    "min": "0",
+    "max": "50"
+  },
+  
+  [...]
+  
+  "5": {
+    "min": "100",
+    "max": "300"
+  }
+}
+
+````
+
+## AORC based AMT
+
+This version use a listening server with the
+[Theaninova/aorc-client](https://github.com/Theaninova/aorc-client) mod.
+
+## OCR based AMT (old version)
+
 [![](https://img.youtube.com/vi/DsTWGiM55rg/0.jpg)](https://www.youtube.com/watch?v=DsTWGiM55rg)  
 https://youtu.be/DsTWGiM55rg
 
@@ -18,7 +44,7 @@ https://youtu.be/DsTWGiM55rg
 </table>
 
 | logs visualizations |
-|-|
+|---|
 | Automatic |
 |![](dashboard_logs_view/kenya_lakenakuru_s_eibenhamemr_automatic.png)|
 | Manual |
