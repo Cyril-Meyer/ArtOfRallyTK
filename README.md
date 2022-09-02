@@ -12,7 +12,8 @@ Read speed, RPM and gear using image processing on the game window screen.
 * [AMT](automated-manual-transmission)  
 Automated manual transmission, conventional manual transmission with
 automatic actuation.  
-This project requires a working [OCR](ocr)
+This project requires [aorc-client](https://github.com/Theaninova/aorc-client) 
+  or a working [OCR](ocr)
 * [aorc-logger](aorc-logger)  
 Log speed, RPM and gear of running game using
 [aorc-client](https://github.com/Theaninova/aorc-client) mod.
