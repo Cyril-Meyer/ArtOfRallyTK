@@ -5,14 +5,21 @@ import threading
 import eventlet.wsgi
 import socketio
 import amt
+from autopilot import autopilot
 
 parser = argparse.ArgumentParser()
 parser.add_argument('settings', help='json file containing gearbox settings',
                     type=argparse.FileType('r', encoding='UTF-8'))
 parser.add_argument('--logs', action='store_true')
+parser.add_argument('--autopilot', help='json file containing autopilot settings',
+                    type=argparse.FileType('r', encoding='UTF-8'), default=None)
 args = parser.parse_args()
 gearbox = json.load(args.settings)
 print(gearbox, type(gearbox))
+stages = None
+if args.autopilot is not None:
+    stages = autopilot.fromJSON(json.load(args.autopilot))
+
 
 sio = socketio.Server(logger=False)
 app = socketio.WSGIApp(sio)
@@ -20,6 +27,7 @@ app = socketio.WSGIApp(sio)
 gear = 0
 speed = 0
 rpm = 0
+autopilot_stage = 0
 if args.logs:
     output = open('automated-manual-transmission/logs.csv', 'w')
     output.write('time,speed,rpm,gear\n')
@@ -44,18 +52,18 @@ def stageUpdate(sid, data):
 
 
 def thread_amt():
-    global gearbox, gear, speed, rpm
+    global gearbox, gear, speed, rpm, autopilot_stage
     while True:
         if gear >= 2:
             x = amt.apply(gearbox, gear-1, speed, rpm)
-            if x > 0:
+            if x > 0 and args.logs:
                 print("↑")
-                time.sleep(0.1)
-            elif x < 0:
+            elif x < 0 and args.logs:
                 print("↓")
-                time.sleep(0.1)
-
-        time.sleep(0.01)
+        if stages is not None:
+            autopilot_stage = autopilot.apply(speed,
+                                              stages,
+                                              autopilot_stage)
 
 
 threading.Thread(target=thread_amt,).start()
