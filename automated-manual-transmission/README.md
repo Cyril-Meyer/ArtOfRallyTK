@@ -2,6 +2,9 @@
 
 Art of Rally Automated Manual Transmission
 
+Our automated manual transmission has no advantage when it comes to upshifting, but does allow downshifting in interesting cases.
+The game tends to never downshift as much as possible, even if it's not profitable.
+
 Create your transmission profile in json (examples in [gearbox_settings](gearbox_settings)).
 Each gear has a min and max value.
 ````
@@ -25,6 +28,11 @@ Each gear has a min and max value.
 
 This version use a listening server with the
 [Theaninova/aorc-client](https://github.com/Theaninova/aorc-client) mod.
+
+| logs visualizations |
+|---|
+|![](dashboard_logs/log_flat_s_eibenhamemr_speed.png)|
+|![](dashboard_logs/log_flat_s_eibenhamemr_acceleration_smoothed.png)|
 
 ## OCR based AMT (old version)
 
